@@ -4,7 +4,8 @@ import (
   "os"
 )
 
-func fileExists(filepath string) bool {
+//FileExists is check if the file exists
+func FileExists(filepath string) bool {
     info, err := os.Stat(filepath)
     if os.IsNotExist(err) {
         return false
@@ -12,7 +13,8 @@ func fileExists(filepath string) bool {
     return !info.IsDir()
 }
 
-func ensureDir(dirName string) error {
+//EnsureDir is check and make folder
+func EnsureDir(dirName string) error {
 
     err := os.Mkdir(dirName, 0755)
 
