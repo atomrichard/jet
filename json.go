@@ -22,7 +22,7 @@ func DoDaJSON(makeit bool, filename string, path string, basepath string, baseby
       if(basepath == ""){
         input, err = ioutil.ReadFile(basepath)
         if err != nil {
-          fmt.Println(err)
+          fmt.Println("ReadFile on basepath" + err.Error())
         }
       }else{
         input = basebyte
@@ -30,15 +30,14 @@ func DoDaJSON(makeit bool, filename string, path string, basepath string, baseby
 
   		err = ioutil.WriteFile(filepathy, input, 0644)
   		if err != nil {
-  			fmt.Println("Error creating")
-  			fmt.Println(err)
+  			fmt.Println("WriteFile on input" + err.Error())
   		}
   	}
   }
   //megnyitni a fájlt
   file, err := ioutil.ReadFile(filepathy)
   if err != nil {
-    fmt.Println(err)
+    fmt.Println("ReadFile on filepathy" + err.Error())
   }
   filestr := string(file)
   return filestr
