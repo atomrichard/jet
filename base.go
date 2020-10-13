@@ -2,6 +2,7 @@ package jet
 
 import (
   "os"
+  "net/http"
 )
 
 //FileExists is check if the file exists
