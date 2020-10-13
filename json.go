@@ -6,7 +6,7 @@ import (
 )
 
 //DoDaJSON is checking if a json file is existing and if makeit is true creating it
-func DoDaJSON(makeit bool, filename string, path string, basepath string, basebyte []byte) (string, error) {
+func DoDaJSON(makeit bool, filename string, path string, basepath string, basebyte []byte) (string) {
 
   filepathy := fmt.Sprintf("%s%s", path, filename)
 
@@ -41,5 +41,5 @@ func DoDaJSON(makeit bool, filename string, path string, basepath string, baseby
     fmt.Println("ReadFile on filepathy" + err.Error())
   }
   filestr := string(file)
-  return filestr, err
+  return filestr
 }
