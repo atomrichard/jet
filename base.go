@@ -23,3 +23,22 @@ func EnsureDir(dirName string) error {
     }
 		return err
 }
+//ParamCheck sends back the URL parameters value
+func ParamCheck(param string, r *http.Request, fallback string) string {
+  keys, ok := r.URL.Query()[param]
+
+      if !ok || len(keys[0]) < 1 {
+          return fallback
+      }
+      return keys[0]
+}
+
+//ParamCheckEx sends back a boolean
+func ParamCheckEx(param string, r *http.Request) bool {
+  keys, ok := r.URL.Query()[param]
+
+      if !ok || len(keys[0]) < 1 {
+          return false
+      }
+      return true
+}

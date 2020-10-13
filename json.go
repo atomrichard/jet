@@ -19,13 +19,14 @@ func DoDaJSON(makeit bool, filename string, path string, basepath string, baseby
   	if FileExists(filepathy) == false {
       var input []byte
       var err error
+
       if(basepath == ""){
+        input = basebyte
+      }else{
         input, err = ioutil.ReadFile(basepath)
         if err != nil {
           fmt.Println("ReadFile on basepath" + err.Error())
         }
-      }else{
-        input = basebyte
       }
 
   		err = ioutil.WriteFile(filepathy, input, 0644)
